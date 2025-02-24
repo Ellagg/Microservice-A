@@ -10,6 +10,7 @@ How to REQUEST data:
     Open the budget_report.txt file and write the budget report information to it in the following
     format:
     ---------------------------------------------------------
+    directory to place pdf
     Monthly Expenses:
     Expense 1
     Expense 2
@@ -24,6 +25,7 @@ How to REQUEST data:
 
     Example Call:
     ---------------------------------------------------------
+    budget_report
     Monthly Expenses:
     50.00
     10.00
@@ -35,6 +37,11 @@ How to REQUEST data:
     300.00
     ---------------------------------------------------------
 
-
+How to RECIEVE data:
+    The budget report will create a pdf in the specified directory. Then it will read the rest
+    of the text file and write that information to the pdf. Once this is done, the microserivce
+    will overwrite the information in the text file with "###complete###". Then the user can
+    navigate to the directory and access the pdf file. The main program will know the microservice
+    has completed by reading the text file and the first line being "###complete###".
 
     
