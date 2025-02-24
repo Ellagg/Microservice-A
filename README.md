@@ -7,6 +7,7 @@ o	Clear instructions for how to programmatically RECEIVE data from the microserv
 o	UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammate (and your grader) will understand.
 
 How to REQUEST data:
+
     Open the budget_report.txt file and write the budget report information to it in the following
     format:
     ---------------------------------------------------------
