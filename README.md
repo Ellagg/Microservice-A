@@ -1,48 +1,29 @@
 # Microservice-A
-Microservice A implemented for Software Engineering I course
 
-README must contain...
-o	Clear instructions for how to programmatically REQUEST data from the microservice you implemented. Include an example call. Do not advise your teammate to use your test program or require them to, your teammate must write all of their own code.
-o	Clear instructions for how to programmatically RECEIVE data from the microservice you implemented. Include an example call.
-o	UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammate (and your grader) will understand.
+Run generate_report.py by enter each line into the terminal: 
+    1. python -m venv .venv 
+    2. .\.venv\Scripts\activate 
+    3. pip install requirements.txt
+    4. python generate_report.py
 
 How to REQUEST data:
-
-    Open the budget_report.txt file and write the budget report information to it in the following
-    format:
-    ---------------------------------------------------------
-    directory to place pdf
-    Monthly Expenses:
-    Expense 1
-    Expense 2
-    Expense 3
-    ...
-    Expense n
-    ###
-    income
-    savings goal
-    distance from savings goal
-    ---------------------------------------------------------
-
-    Example Call:
-    ---------------------------------------------------------
-    budget_report
-    Monthly Expenses:
-    50.00
-    10.00
-    750.00
-    40.00
-    ###
-    5000.00
-    1000.00
-    300.00
-    ---------------------------------------------------------
-
-How to RECIEVE data:
-    The budget report will create a pdf in the specified directory. Then it will read the rest
-    of the text file and write that information to the pdf. Once this is done, the microserivce
-    will overwrite the information in the text file with "###complete###". Then the user can
-    navigate to the directory and access the pdf file. The main program will know the microservice
-    has completed by reading the text file and the first line being "###complete###".
-
+    Request the generate report endpoint and create a response variable to store the return.
     
+    Example Call:
+    response = requests.get("http://localhost:2000/generate-pdf")
+
+    Important Note:
+    generate_report.py assumes the JSON endpoint has the URL "http://localhost:3000/api/export-summary". If this is not the case, then the microservice will fail. 
+    
+How to RECIEVE data:
+    The budget report will return binary data for the pdf so the recieving server needs to 
+    read this and save it as a PDF file. The request example call stores the return value
+    of generate_report.py in a variable called request. Use this to interact with the
+    pdf data.
+
+    Ex:
+        with open("budget_summary.pdf", "wb") as file:
+            file.write(response.content)
+
+UML Sequence Diagram:
+
