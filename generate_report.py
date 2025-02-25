@@ -69,7 +69,7 @@ def generate_pdf():
         # Save and return PDF
         pdf.save()
         buffer.seek(0)
-        return send_file(buffer, as_attachment=True, download_name="budget_summary.pdf", mimetype="application/pdf")
+        return send_file(buffer, as_attachment=True, download_name="budget_summary.pdf", mimetyp="application/pdf")
 
     except requests.RequestException as e:
         return jsonify({"error": "Failed to fetch data", "details": str(e)}), 500
