@@ -9,6 +9,25 @@ Run generate_report.py by enter each line into the terminal:
 #### How to REQUEST data:
     Request the generate report endpoint and create a response variable to store the return.
     
+    JSON Summary format for request:
+
+        {
+            "user_name":"Name",
+            "report_period":"report,period"
+            "total_income":<total income amount>,
+            "total_expenses":<total expenses amount>,
+            "savings_goal":<savings goal amount>,
+            "progress_to_goal":<progress to goal amount>,
+            "detailed_transactions": [
+                {"date":<date>, "category":"category name", "amount":<transaction amount>, "description":"transaction description"}
+                {"date":<date>, "category":"category name", "amount":<transaction amount>, "description":"transaction description"}
+                ...
+                {"date":<date>, "category":"category name", "amount":<transaction amount, "description":"transaction description"}
+            ] 
+
+        }
+
+    
 ##### Example Call:
 
     response = requests.get("http://localhost:2000/generate-pdf")
